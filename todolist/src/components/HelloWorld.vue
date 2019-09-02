@@ -12,12 +12,14 @@
                  v-bind:key="todo.id"
                  v-bind:title="todo.title"
                  v-on:remove="todos.splice(index, 1)"
-             ><input type="checkbox" v-model="toggle">
+             ><input type="checkbox" id="todo.id" v-model="todo.checked">
             {{todo.title}}</li>
           </ul>
+        <p> 
         <button>all</button>
         <button>active</button>
         <button>complete</button>
+        </p>
       </div>
 </template>
 
@@ -30,22 +32,16 @@
     data(){
         return{
             newTodoText: '',
-          todos:[
-               {
-                   id: 1,
-                   title: '做作业',
-               },
-               {
-                   id: 2,
-                   title: '打扫卫生',
-               },
-               {
-                   id: 3,
-                   title: '买东西'
-               }
-          ],
-    nextTodoId: 4
+            toggle:false,
+            todos:[ ],
+            nextTodoId: 1
         }
+    },
+    methods:{
+      addTodo:function(){
+                 this.todos.push({id:this.nextTodoId,title:this.newTodoText,checked:false})
+                 this.nextTodoId=this.nextTodoId+1;
+      }
     }
   }
 </script>
@@ -55,7 +51,15 @@
     h3 {
         margin: 40px 0 0;
     }
-    button{
-        margin:0 20px; 
+    label{
+       margin: 10px;
     }
+    button{
+        margin:10px; 
+    }
+    ul{
+        margin:0 auto;
+        display:block;
+        padding:0px;
+}
 </style>
