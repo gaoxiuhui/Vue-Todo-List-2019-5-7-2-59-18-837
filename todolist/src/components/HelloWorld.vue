@@ -4,7 +4,7 @@
        <h2>Jquery To Do List</h2>
        <h3>Simple Todo List with adding and filter by diff status.</h3>
        <p>
-         <label for="new-todo">Add a todo</label><input id="new-todo" v-model="newTodoText"><button>add</button>
+         <label for="new-todo">Add a todo</label><input id="new-todo" v-model="newTodoText"><button @click="addTodo">add</button>
        </p>
           <ul>
              <li
